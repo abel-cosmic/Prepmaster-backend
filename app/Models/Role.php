@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
-    public function admins()
+    public function admin()
     {
         return $this->hasMany(Admin::class);
     }
