@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOrganizationRequest;
 use App\Http\Requests\UpdateOrganizationRequest;
 use App\Models\Organization;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -57,6 +58,10 @@ class OrganizationController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        //
+        if(!$organization){
+            return response()->json(['error'=> 'Organization not found'],Response::HTTP_NOT_FOUND);
+        }
+        $organization->delete();
+        return response()->json(['message'=>'Organization deleted successfully'],Response::HTTP_OK);
     }
 }
