@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('admin_id');
             $table->string('name');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
-
-
-            // Define the foreign key relationship
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->string('poster');
+            $table->string('video');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('promotions');
     }
 };

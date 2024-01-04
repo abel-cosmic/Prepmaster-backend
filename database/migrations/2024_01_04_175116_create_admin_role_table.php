@@ -10,17 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('admin_role', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->unsignedBigInteger('admin_id');
-            $table->unsignedBigInteger('dept_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->unsignedBigInteger('role_id');
+            $table->timestamps();
 
             // Define the foreign key relationship
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
-            $table->foreign('dept_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('admin_role');
     }
 };
