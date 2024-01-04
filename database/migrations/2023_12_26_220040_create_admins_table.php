@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('role_id')->nullable(); // Nullable as an admin might not have a role
+            $table->unsignedBigInteger('org_id');
             $table->string('fullName');
             $table->string('email');
             $table->string('phoneNumber')->unique();
@@ -20,8 +20,8 @@ return new class extends Migration {
             $table->string('password');
             $table->timestamps();
 
-            // Define foreign key constraint
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
+            // Define the foreign key relationship
+            $table->foreign('org_id')->references('id')->on('organization')->onDelete('cascade');
         });
     }
 

@@ -7,16 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
-//    use HasFactory;
-    protected $primaryKey = 'id';
-    protected  $fillable = ['org_id','name'];
-
-    public function organization(){
-        return $this->belongsTo(Organization::class, 'org_id');
+    use HasFactory;
+    public function students()
+    {
+        return $this->hasOne(Students::class);
     }
-
-    public function course(){
+    public function admins()
+    {
+        return $this->hasMany(Admin::class);
+    }
+    public function courses()
+    {
         return $this->hasMany(Course::class);
     }
+
 }
 

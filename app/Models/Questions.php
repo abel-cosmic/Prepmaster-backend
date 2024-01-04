@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Questions extends Model
 {
     use HasFactory;
-     public function roles(){
-        return $this->belongsTo(Role::class);
-     }
+
+    public function courses()
+    {
+        return $this->belongsTo(Course::class);
+    }
 }

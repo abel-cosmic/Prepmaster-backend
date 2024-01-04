@@ -10,16 +10,17 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('admin_id');
-            $table->unsignedBigInteger('dept_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->unsignedBigInteger('dept_id')->unique();
+            $table->string('fullName');
+            $table->string('email');
+            $table->string('phoneNumber');
+            $table->string('gender');
+            $table->string('password');
+            $table->timestamps();
 
             // Define the foreign key relationship
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->foreign('dept_id')->references('id')->on('departments')->onDelete('cascade');
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('students');
     }
 };
