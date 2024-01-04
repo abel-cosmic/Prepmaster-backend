@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('permission_id');
             $table->string('name');
-            $table->timestamps(); // created_at, updated_at
+            $table->timestamps();
+
+            // Define the foreign key relationship
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
         });
     }
 

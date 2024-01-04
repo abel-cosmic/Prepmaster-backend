@@ -21,11 +21,11 @@ class Organization extends Model
 
     public function admins()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Admin::class, 'org_id');
     }
     public function organizationSubscriptions()
     {
-        return $this->hasMany(OrganizationSubscription::class);
+        return $this->hasMany(OrganizationSubscription::class, 'org_id');
     }
 }
 

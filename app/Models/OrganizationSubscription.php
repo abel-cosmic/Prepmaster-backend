@@ -12,13 +12,13 @@ class OrganizationSubscription extends Model
     protected $fillable=[
         'org_id',
         'subscription_id',
-        'subscription_start_date',
-        'subscription_end_date',
-        'subscription_status',
+        'start_date',
+        'end_date',
+        'status',
     ];
 
     public function organization()
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class, 'org_id');
     }
 }

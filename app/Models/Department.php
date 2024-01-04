@@ -17,15 +17,15 @@ class Department extends Model
 
     public function students()
     {
-        return $this->hasOne(Students::class);
+        return $this->hasOne(Students::class, 'dept_id');
     }
     public function admins()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Admin::class , 'admin_id');
     }
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Course::class, 'dept_id');
     }
 
 }

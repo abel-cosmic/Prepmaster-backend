@@ -14,6 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->string('type');
             $table->unsignedBigInteger('student_id');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->string('status')->default('Active');
             $table->timestamps();
 
             // Define the foreign key relationship

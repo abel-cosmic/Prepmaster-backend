@@ -8,8 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class StudentSubscription extends Model
 {
     use HasFactory;
-    public function students(){
-        return $this->belongsTo(Students:: class);
+
+    protected $fillable = [
+        'student_id',
+        'subscription_id',
+        'start_date',
+        'end_date',
+        'status',
+    ];
+    public function students()
+    {
+        return $this->belongsTo(Students::class, 'student_id');
     }
 }
 

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->string('question');
-            $table->string('choice');
+            $table->json('choices');
             $table->string('answer');
             $table->string('explanation');
             $table->timestamps();

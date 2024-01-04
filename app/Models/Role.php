@@ -9,13 +9,18 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'permission_id',
+        'name',
+    ];
+
     public function adminRoles()
     {
-        return $this->hasMany(AdminRole::class);
+        return $this->hasMany(AdminRole::class, 'role_id');
     }
     public function permissions()
     {
-        return $this->hasMany(Permission::class);
+        return $this->hasMany(Permission::class, 'permission_id');
     }
 
 }

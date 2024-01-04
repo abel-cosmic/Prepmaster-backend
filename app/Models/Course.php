@@ -18,14 +18,14 @@ class Course extends Model
 
     public function admins()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Admin::class, 'admin_id');
     }
     public function departments()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class, 'dept_id');
     }
     public function questions()
     {
-        return $this->hasMany(Questions::class);
+        return $this->hasMany(Questions::class , 'course_id');
     }
 }
