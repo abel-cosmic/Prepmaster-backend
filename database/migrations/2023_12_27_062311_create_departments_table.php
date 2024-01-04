@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('admin_id');
             $table->string('name');
+            $table->string('description');
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
 

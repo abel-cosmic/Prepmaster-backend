@@ -9,6 +9,16 @@ class Organization extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'name',
+        'phoneNumber',
+        'email',
+        'password',
+        'logo',
+        'brandColor',
+    ];
+
+
     public function admins()
     {
         return $this->hasMany(Admin::class);

@@ -14,6 +14,9 @@ return new class extends Migration {
             $table->id();
             $table->string('type');
             $table->unsignedBigInteger('org_id');
+            $table->dateTime('subscription_start_date');
+            $table->dateTime('subscription_end_date');
+            $table->string('subscription_status')->default('Active');
             $table->timestamps();
 
             // Define the foreign key relationship

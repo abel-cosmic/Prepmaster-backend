@@ -8,16 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Students extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'dept_id',
+        'fullName',
+        'email',
+        'phoneNumber',
+        'gender',
+        'password',
+    ];
+
     public function departments()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Department::class, 'dept_id');
     }
     public function studentSubscriptions()
     {
-        return $this->hasMany(StudentSubscription::class);
+        return $this->hasMany(StudentSubscription::class, 'student_id');
     }
     public function courses()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Course::class, 'dep_id');
     }
 }

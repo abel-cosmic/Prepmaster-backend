@@ -9,6 +9,14 @@ class OrganizationSubscription extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'org_id',
+        'subscription_id',
+        'subscription_start_date',
+        'subscription_end_date',
+        'subscription_status',
+    ];
+
     public function organization()
     {
         return $this->belongsTo(Organization::class);

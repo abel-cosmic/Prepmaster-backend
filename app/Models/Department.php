@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name',
+        'description',
+        'admin_id',
+    ];
+
     public function students()
     {
         return $this->hasOne(Students::class);
