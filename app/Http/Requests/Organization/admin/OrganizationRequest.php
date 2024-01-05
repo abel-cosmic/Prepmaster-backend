@@ -19,19 +19,6 @@ class OrganizationRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    /*
-                $table->id();
-            $table->string('name');
-            $table->string('phoneNumber')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('logo');
-            $table->string('brandColor');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
-
-
-    */
     public function rules(): array
     {
         return [
