@@ -22,7 +22,8 @@ class AdminRoleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'admin_id' => 'required|exists:admin,id',
+            'role_id' => 'required|exists:roles,id',
         ];
     }
 }

@@ -22,7 +22,10 @@ class DepartmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'admin_id' => 'required|exists:admins,id',
+            'dept_id' => 'required|exists:departments,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:510',
         ];
     }
 }

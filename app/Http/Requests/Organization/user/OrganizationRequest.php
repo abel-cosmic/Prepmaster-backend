@@ -22,7 +22,12 @@ class OrganizationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'phoneNumber' => 'required|unique:organizations,phoneNumber',
+            'email' => 'required|email|unique:admins,email',
+            'password' => 'required|min:8',
+            'logo' => 'required|text',
+            'brandColor' => 'required|string|max:255',
         ];
     }
 }

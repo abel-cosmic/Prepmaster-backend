@@ -22,7 +22,12 @@ class AdminRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'org_id' => 'required|exists:organizations,id',
+            'fullName' => 'required|string|max:255',
+            'email' => 'required|email|unique:admins,email',
+            'phoneNumber' => 'required|unique:admins,phoneNumber',
+            'gender' => 'required|in:Male,Female',
+            'password' => 'required|min:8',
         ];
     }
 }
